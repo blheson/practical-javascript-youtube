@@ -2,8 +2,6 @@ const canvas = document.getElementById("canvas");
 
 const ctx = canvas.getContext("2d");
 
-const array_of_colors = ['rgb(200, 0, 0)', 'blue', 'green', 'red'];
-
 
 function draw(yi = 0) {
     ctx.fillStyle = "#00bcd4";
@@ -13,11 +11,7 @@ function draw(yi = 0) {
     ctx.beginPath();
   
     for (let i = 0; i < canvas.width; i++) {
-        // for (let i = 0; i < 300; i++) {
- 
         yi++
-
-      
         ctx.lineTo(i, canvas.height / 2 - Math.sin(yi * (Math.PI / 180)) * 7)
 
     }
@@ -27,7 +21,6 @@ function draw(yi = 0) {
     ctx.closePath();
  
     ctx.fillStyle = '#eafdff';
- 
 
     ctx.fill();
 
@@ -35,16 +28,16 @@ function draw(yi = 0) {
 
 let yi = 0;
 let direction = true;
-function wave(intier,cont=true){
+function wave(setIntervalData,cont=true){
   
     if(yi=== 1020) {
         
-        clearInterval(intier)
+        clearInterval(setIntervalData)
         direction=!direction
        
     }
     if(yi === 800 && cont){
-        clearInterval(intier);
+        clearInterval(setIntervalData);
             // console.log("here here",yi)
             let intir = setInterval(() => {
    
@@ -53,11 +46,11 @@ function wave(intier,cont=true){
         
     }
     if(yi === 1000 && cont){
-        clearInterval(intier);
+        clearInterval(setIntervalData);
             // console.log("here here 2",yi)
-            let intisr = setInterval(() => {
+            let setIntInner = setInterval(() => {
    
-                wave(intisr,false)
+                wave(setIntInner,false)
             }, 80)
         
     }
@@ -74,15 +67,15 @@ function wave(intier,cont=true){
        
     }
     if(  yi < 20 ){
-direction=true
+        direction=true
     }
-console.log({yi,direction})
+ 
     draw(yi)
 }
 
-let intier = setInterval(() => {
+let setIntervalData = setInterval(() => {
    
-    wave(intier)
+    wave(setIntervalData)
 }, 20)
 
  
